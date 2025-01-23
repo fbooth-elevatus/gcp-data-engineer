@@ -1,0 +1,8 @@
+com/example/dataflow/PosTransactionAnalytics.class
+com/example/dataflow/PosTransactionAnalytics$Transaction.class
+com/example/dataflow/PosTransactionAnalytics$ParseTransactionFn.class
+com/example/dataflow/PosTransactionAnalytics$AverageIntegerFn$Accumulator.class
+com/example/dataflow/PosTransactionAnalytics$AverageDoubleFn.class
+com/example/dataflow/PosTransactionAnalytics$AverageDoubleFn$Accumulator.class
+com/example/dataflow/PosTransactionAnalytics$LogResults.class
+com/example/dataflow/PosTransactionAnalytics$AverageIntegerFn.class

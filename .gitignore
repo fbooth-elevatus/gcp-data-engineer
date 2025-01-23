@@ -1,0 +1,71 @@
+# Maven target directory
+/target/
+
+# Logs
+*.log
+
+# Compiled class files
+*.class
+
+# Temporary files
+*.swp
+*.swo
+*~
+
+# Maven dependency directory
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse specific files
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA specific files
+.idea/
+*.iml
+*.iws
+out/
+
+# NetBeans specific files
+/nbproject/private/
+/nbproject/nbproject.xml
+/build/
+/dist/
+
+# VS Code specific files
+.vscode/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Application-specific files
+*.env
+*.properties
+*.json
+*.yml
+*.yaml
+
+# JetBrains Rider specific files
+.idea/
+.idea_modules/
+*.ipr
+*.iws
+
+# Temporary or other backup files
+*.bak
+*.tmp
+*.swp
+
+# Generated JAR or WAR files
+*.jar
+*.war
+*.ear
+
+# Other files
+*.log
+*.pid
+*.seed
+*.pid.lock
+hs_err_pid*
