@@ -23,8 +23,6 @@ public class PosTransactionAnalytics {
 
         pipeline
             .apply("ReadMessages", PubsubIO.readStrings().fromTopic("projects/your-project-id/topics/pos-transactions"))
-
-            // Parse JSON messages into Transaction objects
             .apply("ParseTransactions", ParDo.of(new ParseTransactionFn()))
 
             // Apply fixed windowing of 1 minute
