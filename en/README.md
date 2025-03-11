@@ -13,7 +13,7 @@ This repository serves as a structured study guide for the **Google Cloud Profes
 ## 🏗️ Exam Domains and Breakdown
 The exam consists of five key sections, covering core data engineering concepts and best practices:
 
-### **1️⃣ Designing Data Processing Systems (22%)**
+### **1️⃣ [Designing Data Processing Systems](designing_data_processing_systems/Designing_Data_Processing_Systems.md) (22%)**
 - Designing for security and compliance
   - Identity and Access Management (IAM)
   - Encryption and key management
