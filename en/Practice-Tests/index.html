@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOGAF Part 1 Practice Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .answer-feedback {
+            display: none;
+            margin-top: 10px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>TOGAF Part 1 Practice Test</h2>
+        <form id="quizForm">
+            <div id="quiz"></div>
+        </form>
+    </div>
+
+    <script>
+        async function loadQuiz() {
+            const response = await fetch('questions.json');
+            const questions = await response.json();
+            const quizContainer = document.getElementById("quiz");
+            quizContainer.innerHTML = "";
+            questions.forEach((q, index) => {
+                const questionBlock = document.createElement("div");
+                questionBlock.classList.add("question");
+                questionBlock.innerHTML = `
+                    <strong>${index + 1}. ${q.question}</strong>
+                    <br>
+                    <i>Domain: ${q.domain}</i>
+                    <br>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <label>
+                                <input type="radio" name="q${index}" value="${i}" onclick="gradeQuestion(${index}, ${q.answer}, '${q.options[q.answer]}', '${q.explanation}')"> ${opt}
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div id="feedback${index}" class="answer-feedback"></div>
+                `;
+                quizContainer.appendChild(questionBlock);
+            });
+        }
+
+        function gradeQuestion(index, correctAnswer, correctText, explanation) {
+            const feedbackDiv = document.getElementById(`feedback${index}`);
+            const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+            if (selectedOption) {
+                const selectedValue = parseInt(selectedOption.value);
+                if (selectedValue === correctAnswer) {
+                    feedbackDiv.innerHTML = `✅ Correct - ${explanation}`;
+                    feedbackDiv.classList.add("correct");
+                    feedbackDiv.classList.remove("incorrect");
+                } else {
+                    feedbackDiv.innerHTML = `❌ Incorrect. The correct answer is: <strong>${correctText}</strong>. ${explanation}`;
+                    feedbackDiv.classList.add("incorrect");
+                    feedbackDiv.classList.remove("correct");
+                }
+                feedbackDiv.style.display = "block";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", loadQuiz);
+    </script>
+</body>
+</html>
