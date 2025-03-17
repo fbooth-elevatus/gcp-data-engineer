@@ -1,6 +1,3 @@
-### **README.md**
-
-```markdown
 # Dataflow Point of Sale Analytics
 
 This project is a **Google Cloud Dataflow** pipeline, built using **Apache Beam**, to analyze real-time **Point of Sale (POS) transactions** streamed from a **Pub/Sub topic**. The pipeline demonstrates how to calculate:

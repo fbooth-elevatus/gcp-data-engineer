@@ -1,7 +1,3 @@
-
-### **Store POS Stream Publisher README.md**
-
-```markdown
 # Store Point of Sale Stream Publisher
 
 This project is a Java-based application that simulates **Point of Sale (POS) transactions** for multiple stores and publishes the data in real time to a **Google Cloud Pub/Sub topic**. The application is built using Maven and leverages **Google Cloud Pub/Sub** for messaging, **Gson** for JSON serialization, and **SLF4J** with **Logback** for logging.
@@ -170,5 +166,3 @@ Each transaction published to Pub/Sub will follow this format:
 - **INFO**: High-level updates such as transaction publishing progress and system initialization.
 - **DEBUG**: Detailed logs for each published transaction.
 - **ERROR**: Logs errors and exceptions during message publishing or system shutdown.
-
----
