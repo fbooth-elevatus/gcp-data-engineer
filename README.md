@@ -1,4 +1,4 @@
-# 📌 README - Translation to English
+# 📌 README - Translation to Spanish
 
 This repository is in **English**, but you can easily read it in **Spanish** using Google Chrome.
 
