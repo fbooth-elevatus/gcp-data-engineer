@@ -174,6 +174,4 @@ gcloud services disable bigquery.googleapis.com storage.googleapis.com spanner.g
 ✅ Implemented **auto-scaling** with **Dataflow & Dataproc**  
 ✅ Partitioned & indexed data to **enhance query performance**  
 
-🚀 **Next Lab:** [Lab-4: Data Processing & Orchestration](#)  
-
-This **hands-on GCP Lab-3** is structured to **teach practical scalability & performance** with real-world examples. Let me know if you want any additions or modifications! 🚀
+🚀 **Next Lab:** [Lab-4: Data Processing & Orchestration](../Lab_4-Cost%20Optimization%20in%20GCP/Lab-4-Cost%20Optimization%20in%20GCP.md)  

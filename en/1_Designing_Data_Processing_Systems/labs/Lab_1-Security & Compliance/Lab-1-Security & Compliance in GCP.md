@@ -184,5 +184,6 @@ gcloud services disable dlp.googleapis.com cloudkms.googleapis.com
 ✅ Used **Cloud DLP** to detect and redact sensitive data  
 ✅ Implemented **VPC Service Controls** for **compliance with GDPR, HIPAA, and PCI-DSS**  
 
-🚀 **Next Lab:** [Lab-2: Data Processing & Reliability](./Lab_2/Lab-2-Reliability & Data Integrity in GCP.md)  
-``` 
+---
+
+🚀 **Next Lab:** [Lab-2: Data Processing & Reliability](../Lab_2-Reliability & Data Integrity in GCP/Lab-2-Reliability & Data Integrity in GCP.md)  

@@ -156,4 +156,4 @@ gcloud services disable dataprep.googleapis.com bigquery.googleapis.com dataflow
 ✅ Designed for **fault tolerance** using **Dataflow checkpointing** & **multi-region storage**  
 ✅ Enabled **monitoring & alerts** using **Cloud Logging, Monitoring, and Stackdriver**  
 
-🚀 **Next Lab:** [Lab-3: Data Processing & Orchestration](#)  
+🚀 **Next Lab:** [Lab-3: Data Processing & Orchestration](../Lab_3-Scalability & Performance in GCP/Lab-3-Scalability & Performance in GCP.md)  
