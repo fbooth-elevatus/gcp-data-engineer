@@ -18,7 +18,7 @@ Preparing and using data for analysis is a key competency for **Google Cloud Pro
 
 ---
 
-## 1️⃣ **Data Ingestion and Cleaning**
+## 1️⃣ **[Data Ingestion and Cleaning](./Data_Ingestion_and_Cleaning.md)**
 ### 💼 **Real-World Use Case: Cleaning Customer Purchase Data**
 **Scenario:** A **retail company** collects customer purchase data from various locations. The data must be **cleaned, deduplicated, and loaded** into BigQuery for reporting.
 
@@ -64,7 +64,7 @@ gcloud bigquery query \
 
 ---
 
-## 2️⃣ **Transforming Data for Analysis**
+## 2️⃣ **[Transforming Data for Analysis](./Transforming_Data_for_Analysis.md)**
 ### 💼 **Real-World Use Case: Processing Streaming Data from IoT Sensors**
 **Scenario:** A **smart home company** collects real-time temperature readings from IoT sensors. Data must be **aggregated and normalized** before analysis.
 
@@ -119,7 +119,7 @@ gcloud dataflow jobs run streaming-sensor-data \
 
 ---
 
-## 3️⃣ **Analyzing and Visualizing Data**
+## 3️⃣ **[Analyzing and Visualizing Data](./Analyzing_and_Visualizing_Data.md)**
 ### 💼 **Real-World Use Case: Marketing Campaign Performance Analytics**
 **Scenario:** A **digital marketing agency** wants to analyze **advertising campaign performance** using **BigQuery and Looker**.
 
