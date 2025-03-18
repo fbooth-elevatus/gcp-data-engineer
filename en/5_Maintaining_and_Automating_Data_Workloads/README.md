@@ -25,7 +25,7 @@ This guide covers:
 
 ---
 
-## 1️⃣ **Automating Batch Data Workloads**
+## 1️⃣ **[Automating Batch Data Workloads](./Automating_Batch_Data_Workloads.md)**
 ### 💼 **Real-World Use Case: Automating Daily ETL Pipelines**
 **Scenario:** A **financial institution** processes **daily transaction logs** from multiple sources and loads them into BigQuery for **fraud detection analysis**.
 

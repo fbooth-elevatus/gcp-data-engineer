@@ -27,41 +27,6 @@ Preparing and using data for analysis is a key competency for **Google Cloud Pro
 - **Cloud Dataprep:** Cleans and standardizes data.
 - **BigQuery:** Stores processed data for analysis.
 
-#### **Python Example: Cleaning and Loading Data to BigQuery**
-```python
-from google.cloud import bigquery
-
-client = bigquery.Client()
-query = """
-DELETE FROM retail.analytics.purchases
-WHERE row_number() OVER (PARTITION BY customer_id ORDER BY purchase_date DESC) > 1;
-"""
-client.query(query)
-print("Duplicate customer purchases removed successfully.")
-```
-
-#### **Java Example: Deduplicating Data in BigQuery**
-```java
-import com.google.cloud.bigquery.*;
-
-public class CleanPurchaseData {
-    public static void main(String[] args) throws Exception {
-        BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
-        String query = "DELETE FROM retail.analytics.purchases " +
-                       "WHERE row_number() OVER (PARTITION BY customer_id ORDER BY purchase_date DESC) > 1;";
-        bigquery.query(QueryJobConfiguration.newBuilder(query).build());
-        System.out.println("Duplicate purchases removed.");
-    }
-}
-```
-
-#### **GCP CLI Command: Running a Query in BigQuery**
-```sh
-gcloud bigquery query \
-    --use_legacy_sql=false \
-    "DELETE FROM retail.analytics.purchases WHERE row_number() OVER (PARTITION BY customer_id ORDER BY purchase_date DESC) > 1;"
-```
-
 ---
 
 ## 2️⃣ **[Transforming Data for Analysis](./Transforming_Data_for_Analysis.md)**
@@ -73,50 +38,6 @@ gcloud bigquery query \
 - **Cloud Dataflow:** Processes and normalizes data.
 - **BigQuery Streaming:** Stores structured analytics data.
 
-#### **Python Example: Dataflow Pipeline for Streaming Processing**
-```python
-import apache_beam as beam
-from apache_beam.options.pipeline_options import PipelineOptions
-
-options = PipelineOptions(
-    streaming=True,
-    runner='DataflowRunner',
-    project='iot-analytics',
-    temp_location='gs://iot-temp-bucket/temp',
-    region='us-central1'
-)
-
-with beam.Pipeline(options=options) as pipeline:
-    events = pipeline | 'Read from Pub/Sub' >> beam.io.ReadFromPubSub(topic='projects/iot/topics/sensor_data')
-    parsed = events | 'Parse JSON' >> beam.Map(lambda x: eval(x.decode('utf-8')))
-    parsed | 'Write to BigQuery' >> beam.io.WriteToBigQuery('iot.analytics.sensors')
-```
-
-#### **Java Example: Streaming Dataflow Pipeline**
-```java
-import org.apache.beam.sdk.Pipeline;
-import org.apache.beam.sdk.io.gcp.pubsub.PubsubIO;
-import org.apache.beam.sdk.io.gcp.bigquery.BigQueryIO;
-
-public class StreamingDataflow {
-    public static void main(String[] args) {
-        Pipeline pipeline = Pipeline.create();
-        
-        pipeline.apply("Read Pub/Sub", PubsubIO.readStrings().fromTopic("projects/iot/topics/sensor_data"))
-                .apply("Write to BigQuery", BigQueryIO.writeTableRows().to("iot.analytics.sensors"));
-        
-        pipeline.run().waitUntilFinish();
-    }
-}
-```
-
-#### **GCP CLI Command: Run Streaming Dataflow Job**
-```sh
-gcloud dataflow jobs run streaming-sensor-data \
-    --gcs-location gs://dataflow-templates/latest/PubSub_to_BigQuery \
-    --parameters inputTopic=projects/iot/topics/sensor_data,outputTable=iot.analytics.sensors
-```
-
 ---
 
 ## 3️⃣ **[Analyzing and Visualizing Data](./Analyzing_and_Visualizing_Data.md)**
@@ -127,34 +48,37 @@ gcloud dataflow jobs run streaming-sensor-data \
 - **BigQuery:** Stores campaign performance data.
 - **Looker Studio:** Visualizes key marketing metrics.
 
-#### **Python Example: Running an Aggregation Query in BigQuery**
+---
+
+## 4️⃣ **[Programming Apache Beam](./Apache_Beam_Programming.md)**
+Apache Beam provides a **unified programming model** to build **batch and streaming data pipelines**. As a **language-independent** framework, Beam supports both **Python and Java** for processing large-scale data.
+
+### 📌 **Topics Covered**
+- **Understanding Beam Pipelines**: How to construct and run **batch and streaming** pipelines.
+- **Transforms**: Applying **Map, Filter, ParDo, GroupByKey, and CoGroupByKey**.
+- **Aggregate Functions**: Calculating **averages, sums, standard deviations** in real-world data.
+- **Windowing**: Applying **tumbling, sliding, and session windows** for real-time streaming.
+- **Custom Functions**: Creating **custom DoFn transforms** for business logic.
+- **Joining Data Streams**: Using **CoGroupByKey** for **merging multiple data sources**.
+
+✅ **GCP Implementation with Apache Beam**
+- **Cloud Dataflow**: Serverless execution of Beam pipelines.
+- **Pub/Sub**: Handling streaming event data.
+- **BigQuery**: Storing processed and aggregated results.
+
+### 📌 **Example: Computing Average Temperature from IoT Sensors**
+#### **Python Example: Calculating Running Average with Windowing**
 ```python
-query = """
-SELECT campaign_id, AVG(conversion_rate) as avg_conversion
-FROM marketing.analytics.campaign_performance
-GROUP BY campaign_id
-ORDER BY avg_conversion DESC;
-"""
-query_job = client.query(query)
-for row in query_job:
-    print(f"Campaign: {row.campaign_id}, Conversion Rate: {row.avg_conversion}")
-```
+import apache_beam as beam
+from apache_beam.transforms.window import SlidingWindows
 
-#### **Java Example: Querying Marketing Data in BigQuery**
-```java
-BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
-String query = "SELECT campaign_id, AVG(conversion_rate) as avg_conversion FROM marketing.analytics.campaign_performance " +
-               "GROUP BY campaign_id ORDER BY avg_conversion DESC;";
-TableResult result = bigquery.query(QueryJobConfiguration.newBuilder(query).build());
-result.iterateAll().forEach(row -> System.out.println("Campaign: " + row.get("campaign_id").getStringValue() +
-        ", Conversion Rate: " + row.get("avg_conversion").getDoubleValue()));
-```
-
-#### **GCP CLI Command: Query Marketing Data in BigQuery**
-```sh
-gcloud bigquery query --use_legacy_sql=false \
-    "SELECT campaign_id, AVG(conversion_rate) as avg_conversion FROM marketing.analytics.campaign_performance GROUP BY campaign_id ORDER BY avg_conversion DESC;"
-```
+with beam.Pipeline() as pipeline:
+    (pipeline
+     | 'Read from Pub/Sub' >> beam.io.ReadFromPubSub(topic='projects/iot/topics/sensor_data')
+     | 'Apply Sliding Window' >> beam.WindowInto(SlidingWindows(60, 30))
+     | 'Compute Average' >> beam.CombinePerKey(beam.combiners.MeanCombineFn())
+     | 'Write to BigQuery' >> beam.io.WriteToBigQuery('iot.analytics.sensor_averages')
+    )
 
 ---
 
