@@ -1,0 +1,244 @@
+{
+    "problems": [
+      {
+        "question": "You need to compose a query for a table that contains sales data for the last three years to identify all sales over $500 that occurred in Texas or Florida in Q1 2022 so that they can be reviewed by a sales audit team. Which SQL WHERE clause should you use?",
+        "options": [
+          "WHERE sale_date >= '2022-01-01' AND sale_date <= '2022-03-31' AND sale_amount > 500 AND (state = 'TX' OR state = 'FL')",
+          "WHERE sale_date >= '2022-01-01' AND sale_date <= '2022-03-31' AND sale_amount > 500 AND state IN ('TX', 'FL')",
+          "WHERE sale_date BETWEEN '2022-01-01' AND '2022-03-31' AND sale_amount > 500 AND state IN ('TX', 'FL')",
+          "All of the above"
+        ],
+        "answer": "All of the above",
+        "explanation": "All three WHERE clauses correctly filter for sales in Q1 2022 (January 1 to March 31, 2022) with amounts over $500 in Texas ('TX') or Florida ('FL'). The first uses explicit AND/OR logic, the second uses IN for state filtering, and the third uses BETWEEN for date range, all yielding the same result.",
+        "domain": "Data Analysis"
+      },
+      {
+        "question": "Which of these Google Cloud services provides a fully-managed environment for running Apache Spark and Hadoop workloads?",
+        "options": [
+          "Cloud Dataflow",
+          "Cloud Dataproc",
+          "Cloud Composer",
+          "BigQuery"
+        ],
+        "answer": "Cloud Dataproc",
+        "explanation": "Cloud Dataproc is a fully-managed service for running Apache Spark and Hadoop workloads. Cloud Dataflow is for stream and batch processing with Apache Beam, Cloud Composer manages workflows with Apache Airflow, and BigQuery is a data warehouse for analytics, not Spark/Hadoop.",
+        "domain": "Data Pipelines"
+      },
+      {
+        "question": "Your data engineering team is planning to migrate an on-premises MySQL database containing retail transaction data to Google Cloud. Your manager wants to minimize application changes during the migration. Which Google Cloud database service should you recommend?",
+        "options": [
+          "Cloud Spanner",
+          "BigQuery",
+          "Cloud SQL",
+          "Firestore"
+        ],
+        "answer": "Cloud SQL",
+        "explanation": "Cloud SQL is a fully-managed relational database service supporting MySQL, minimizing application changes for a MySQL migration. Cloud Spanner is a globally scalable relational database requiring more adjustments, BigQuery is for analytics, and Firestore is a NoSQL database unsuitable for relational data.",
+        "domain": "Databases"
+      },
+      {
+        "question": "You have been asked to recommend a storage solution for IoT telemetry data that will be ingested at a high rate and queried using analytical tools that support SQL. The data does not need to be updated after being written. Which storage solution would you recommend?",
+        "options": [
+          "Cloud Storage",
+          "BigQuery",
+          "Cloud Bigtable",
+          "Cloud Spanner"
+        ],
+        "answer": "BigQuery",
+        "explanation": "BigQuery is ideal for high-rate ingestion of IoT telemetry data and supports SQL for analytics, with no need for updates post-write. Cloud Storage is for object storage, Cloud Bigtable is for low-latency NoSQL workloads, and Cloud Spanner is a relational database for transactional updates, not analytics.",
+        "domain": "Data Management"
+      },
+      {
+        "question": "A startup has asked you to recommend a NoSQL database for their application that collects user feedback in JSON format from multiple mobile applications. The database must scale horizontally to handle unpredictable traffic spikes from mobile users worldwide and support flexible schemas. Which Google Cloud database would you recommend?",
+        "options": [
+          "Cloud SQL",
+          "BigQuery",
+          "Firestore",
+          "Cloud Spanner"
+        ],
+        "answer": "Firestore",
+        "explanation": "Firestore is a NoSQL database that scales horizontally, supports flexible JSON schemas, and handles unpredictable traffic spikes globally. Cloud SQL and Cloud Spanner are relational databases, and BigQuery is an analytical data warehouse, not suited for this use case.",
+        "domain": "Databases"
+      },
+      {
+        "question": "Your manager has asked you to deploy a Cloud Dataflow job to process streaming data from a Cloud Pub/Sub topic containing JSON messages with customer order data. Which command should you use to deploy the job from a template stored in Cloud Storage?",
+        "options": [
+          "gcloud dataflow jobs run my-job --gcs-location gs://my-bucket/templates/my-template",
+          "gcloud dataflow jobs deploy my-job --gcs-location gs://my-bucket/templates/my-template",
+          "gcloud dataflow jobs run my-job --template gs://my-bucket/templates/my-template",
+          "gcloud dataflow jobs run my-job --template-location gs://my-bucket/templates/my-template"
+        ],
+        "answer": "gcloud dataflow jobs run my-job --gcs-location gs://my-bucket/templates/my-template",
+        "explanation": "The correct command is 'gcloud dataflow jobs run' with '--gcs-location' to deploy a Dataflow job from a template in Cloud Storage. Other options either use incorrect syntax ('--template', '--template-location') or an invalid command ('deploy').",
+        "domain": "Data Pipelines"
+      },
+      {
+        "question": "Which of these Google Cloud services should you use to orchestrate a workflow that includes data ingestion, transformation, and loading tasks across multiple Google Cloud services, such as Cloud Storage, Cloud Dataproc, and BigQuery?",
+        "options": [
+          "Cloud Dataflow",
+          "Cloud Composer",
+          "Cloud Functions",
+          "Cloud Run"
+        ],
+        "answer": "Cloud Composer",
+        "explanation": "Cloud Composer, based on Apache Airflow, is designed to orchestrate workflows across Google Cloud services like Cloud Storage, Cloud Dataproc, and BigQuery. Cloud Dataflow is for data processing, Cloud Functions is for event-driven tasks, and Cloud Run is for containerized applications.",
+        "domain": "Data Pipelines"
+      },
+      {
+        "question": "You need to create a dashboard to visualize sales data stored in BigQuery for a business intelligence team. Which Google Cloud tool should you recommend?",
+        "options": [
+          "Cloud Monitoring",
+          "Looker Studio",
+          "Cloud Logging",
+          "BigQuery BI Engine"
+        ],
+        "answer": "Looker Studio",
+        "explanation": "Looker Studio (formerly Google Data Studio) is designed for creating dashboards and visualizing data from BigQuery. Cloud Monitoring and Logging are for system metrics and logs, while BigQuery BI Engine enhances query performance, not visualization.",
+        "domain": "Data Analysis"
+      },
+      {
+        "question": "Your team needs to process a large batch of historical sales data stored in Cloud Storage using Apache Spark, with the results written back to Cloud Storage. Which Google Cloud service should you use to minimize operational overhead?",
+        "options": [
+          "Compute Engine",
+          "Cloud Dataflow",
+          "Cloud Dataproc",
+          "BigQuery"
+        ],
+        "answer": "Cloud Dataproc",
+        "explanation": "Cloud Dataproc is a managed service for running Apache Spark, minimizing operational overhead for batch processing of sales data in Cloud Storage. Compute Engine requires manual cluster management, Cloud Dataflow uses Apache Beam, and BigQuery is for analytics, not Spark.",
+        "domain": "Data Pipelines"
+      },
+      {
+        "question": "You have been tasked with setting up a data pipeline to ingest streaming data from IoT devices into BigQuery for real-time analytics. Which Google Cloud service should you use as an intermediary to buffer the streaming data before it reaches BigQuery?",
+        "options": [
+          "Cloud Storage",
+          "Cloud Pub/Sub",
+          "Cloud Bigtable",
+          "Cloud Functions"
+        ],
+        "answer": "Cloud Pub/Sub",
+        "explanation": "Cloud Pub/Sub is a messaging service ideal for buffering streaming IoT data before ingestion into BigQuery for real-time analytics. Cloud Storage is for static objects, Cloud Bigtable is a NoSQL database, and Cloud Functions is for event-driven processing, not buffering.",
+        "domain": "Data Pipelines"
+      },
+      {
+        "question": "A retail company wants to store raw transaction data in a cost-effective manner for long-term retention and occasional analysis. The data will not be accessed frequently. Which Google Cloud storage class should you recommend?",
+        "options": [
+          "Standard Storage",
+          "Nearline Storage",
+          "Coldline Storage",
+          "Archive Storage"
+        ],
+        "answer": "Coldline Storage",
+        "explanation": "Coldline Storage is cost-effective for long-term retention with occasional access, suitable for raw transaction data. Standard Storage is for frequent access, Nearline for monthly access, and Archive for very rare access with higher retrieval costs.",
+        "domain": "Data Management"
+      },
+      {
+        "question": "You need to ensure that a Cloud Dataproc cluster uses customer-managed encryption keys (CMEK) to comply with your company's security policies. Which `gcloud` command parameter should you include when creating the cluster?",
+        "options": [
+          "--customer-managed-key",
+          "--encryption-key",
+          "--gce-pd-kms-key",
+          "--kms-key"
+        ],
+        "answer": "--gce-pd-kms-key",
+        "explanation": "The '--gce-pd-kms-key' parameter specifies a customer-managed encryption key for persistent disks in a Cloud Dataproc cluster. Other options are either invalid or pertain to different contexts (e.g., '--kms-key' is for Cloud KMS, not Dataproc directly).",
+        "domain": "Data Pipelines"
+      },
+      {
+        "question": "Your team is migrating a large dataset from an on-premises Hadoop cluster to Google Cloud. You want to minimize downtime and ensure the data is available for processing as quickly as possible. Which tool should you use?",
+        "options": [
+          "gsutil",
+          "Transfer Appliance",
+          "Storage Transfer Service",
+          "BigQuery Data Transfer Service"
+        ],
+        "answer": "Transfer Appliance",
+        "explanation": "Transfer Appliance is best for migrating large datasets quickly with minimal downtime by physically shipping data to Google Cloud. 'gsutil' is for smaller transfers, Storage Transfer Service is for cloud-to-cloud, and BigQuery Data Transfer Service is for specific data sources to BigQuery.",
+        "domain": "Data Management"
+      },
+      {
+        "question": "You need to schedule a daily ETL job that extracts data from Cloud Storage, transforms it using a Python script, and loads it into BigQuery. Which Google Cloud service should you use to automate this workflow?",
+        "options": [
+          "Cloud Scheduler",
+          "Cloud Composer",
+          "Cloud Functions",
+          "Cloud Run"
+        ],
+        "answer": "Cloud Composer",
+        "explanation": "Cloud Composer automates and orchestrates ETL workflows, integrating Cloud Storage, Python scripts, and BigQuery. Cloud Scheduler only triggers events, Cloud Functions is for lightweight event-driven tasks, and Cloud Run is for containerized apps, not full workflows.",
+        "domain": "Data Pipelines"
+      },
+      {
+        "question": "A data analyst needs to query a large dataset in BigQuery that includes sensitive customer information. You want to ensure that only authorized users can access specific columns. Which feature should you use?",
+        "options": [
+          "Column-level security",
+          "Row-level security",
+          "Table-level security",
+          "Dataset-level security"
+        ],
+        "answer": "Column-level security",
+        "explanation": "Column-level security in BigQuery restricts access to specific columns containing sensitive data. Row-level security controls row access, while table-level and dataset-level security apply broader permissions, not column-specific.",
+        "domain": "Access Control"
+      },
+      {
+        "question": "Your company wants to process streaming data from a Cloud Pub/Sub topic and write the results to BigQuery using a SQL-based approach. Which Google Cloud service should you use?",
+        "options": [
+          "Cloud Dataflow SQL",
+          "BigQuery Streaming",
+          "Cloud Dataproc",
+          "Cloud Functions"
+        ],
+        "answer": "Cloud Dataflow SQL",
+        "explanation": "Cloud Dataflow SQL processes streaming data from Cloud Pub/Sub using SQL and writes to BigQuery. BigQuery Streaming is for ingestion, not processing; Cloud Dataproc is for Spark/Hadoop; and Cloud Functions is for event-driven tasks, not SQL-based processing.",
+        "domain": "Data Pipelines"
+      },
+      {
+        "question": "You need to monitor the performance of a Cloud Dataflow pipeline and set up an alert if the job fails. Which Google Cloud service should you use?",
+        "options": [
+          "Cloud Logging",
+          "Cloud Monitoring",
+          "Cloud Trace",
+          "Cloud Debugger"
+        ],
+        "answer": "Cloud Monitoring",
+        "explanation": "Cloud Monitoring tracks pipeline performance and supports alerting on job failures. Cloud Logging is for log storage, Cloud Trace is for latency analysis, and Cloud Debugger is for code debugging, not performance monitoring or alerting.",
+        "domain": "Monitoring and Logging"
+      },
+      {
+        "question": "Your team is building a machine learning model and needs to store training data in a format that supports efficient random access and columnar data retrieval. Which storage format should you recommend?",
+        "options": [
+          "CSV",
+          "JSON",
+          "Avro",
+          "Parquet"
+        ],
+        "answer": "Parquet",
+        "explanation": "Parquet is a columnar storage format optimized for efficient random access and retrieval, ideal for machine learning. CSV and JSON lack columnar efficiency, and Avro, while efficient, is row-based and less suited for columnar queries.",
+        "domain": "Data Management"
+      },
+      {
+        "question": "You need to transfer a large dataset from an Amazon S3 bucket to Cloud Storage daily. Which Google Cloud service should you use to automate this process?",
+        "options": [
+          "gsutil",
+          "Storage Transfer Service",
+          "BigQuery Data Transfer Service",
+          "Cloud Dataflow"
+        ],
+        "answer": "Storage Transfer Service",
+        "explanation": "Storage Transfer Service automates daily transfers from Amazon S3 to Cloud Storage. 'gsutil' is manual, BigQuery Data Transfer Service is for BigQuery ingestion, and Cloud Dataflow is for data processing, not direct transfers.",
+        "domain": "Data Management"
+      },
+      {
+        "question": "A data scientist needs to perform ad-hoc queries on a large dataset stored in Cloud Storage without loading it into a database. Which Google Cloud feature should you recommend?",
+        "options": [
+          "BigQuery external tables",
+          "Cloud Storage SQL",
+          "Cloud Dataproc",
+          "Cloud Spanner federation"
+        ],
+        "answer": "BigQuery external tables",
+        "explanation": "BigQuery external tables allow ad-hoc SQL queries on Cloud Storage data without loading it into a database. 'Cloud Storage SQL' doesn’t exist, Cloud Dataproc requires processing setup, and Cloud Spanner federation is for different purposes.",
+        "domain": "Data Analysis"
+      }
+    ]
+  }

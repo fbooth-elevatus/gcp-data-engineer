@@ -1,0 +1,622 @@
+[
+    {
+        "question": "In order to comply with industry regulations, you will need to use customer managed keys when analyzing data using Cloud Dataproc. You will be managing Cloud Dataproc clusters using command line tools. What command would you use with the --gce-pd-kms-key parameter to specify a Cloud KMS resource ID to use with the cluster?",
+        "options": [
+            "gcloud clusters dataproc kms",
+            "gcloud clusters dataproc create",
+            "gcloud dataproc clusters create",
+            "gcloud dataproc clusters kms"
+        ],
+        "answer": "gcloud dataproc clusters create",
+        "explanation": "The correct answer is gcloud dataproc clusters create. The other options are not valid gcloud commands. See https://cloud.google.com/sdk/gcloud/reference/dataproc/clusters/create",
+        "domain": "Data Pipelines"
+    },
+    {
+        "question": "You use materialized views in BigQuery. You are incurring higher than expected charges for BigQuery and suspect it may be related to materialized views. What materialized view characteristic could increase your BigQuery costs? (Choose 2)",
+        "options": [
+            "The number of users with read access to the materialized view",
+            "The frequency of materialized view refresh",
+            "The total volume of data stored in materialized views",
+            "The datatypes used in materialized views"
+        ],
+        "answer": [
+            "The frequency of materialized view refresh",
+            "The total volume of data stored in materialized views"
+        ],
+        "explanation": "The amount of data stored and the frequency of refresh jobs can increase the cost of maintaining materialized views. The data types used in the materialized view do not affect the cost. The number of users reading a materialized view does not affect cost but the total amount of data scanned would impact cost. See https://cloud.google.com/bigquery/docs/materialized-views-intro",
+        "domain": "Data management"
+    },
+    {
+        "question": "You have created a Compute Engine instance with an attached GPU but the GPU is not used when you train a Tensorflow model. What might you do to ensure the GPU can be used for training your models? (Choose 2)",
+        "options": [
+            "Use Pytorch instead of Tensorflow",
+            "Install GPU drivers",
+            "Update Python 3 on the VM",
+            "Grant the Owner basic role to the VM service account",
+            "Use a Deep Learning VM image"
+        ],
+        "answer": [
+            "Install GPU drivers",
+            "Use a Deep Learning VM image"
+        ],
+        "explanation": "GPU drivers need to be installed if they are not installed already when using GPUs. Deep Learning VM images have GPU drivers installed. Using Pytorch instead of Tensorflow will require work to recode and Pytorch would not be able to use GPUs either if the drivers are not installed. Updating Python will not address the problem of missing drivers. Granting a new role to the service account of the VM will not address the need to install GPU drivers. See https://cloud.google.com/compute/docs/gpus/install-drivers-gpu",
+        "domain": "Data analysis"
+    },
+    {
+        "question": "As an analyst with a major metropolitan public transportation agency, you are tasked with monitoring data about passengers on all modes of transport provided by the agency. Since you know SQL, you would like to run a SQL query using Cloud Dataflow. What command allows you to run a SQL query and write results to a BigQuery table? (Assume all need parameters will be specified).",
+        "options": [
+            "bq dataflow sql query",
+            "gcloud bigquery sql query",
+            "gcloud dataflow sql query",
+            "bq bigquery sql query"
+        ],
+        "answer": "gcloud dataflow sql query",
+        "explanation": "The correct answer is gcloud dataflow sql query. Bq is the command line tool for working with BigQuery but this calls for executing a Cloud Dataflow command, which requires a gcloud command. Gcloud bigquery is not a valid GCP command. See https://cloud.google.com/sdk/gcloud/reference/dataflow/sql/query",
+        "domain": "Data pipelines"
+    },
+    {
+        "question": "The CTO of your company is concerned about the costs of running data pipelines, especially some large batch processing jobs. The jobs do not have to be run on a fixed schedule and the CTO is willing to wait longer for jobs to complete if it can reduce costs. You are using Cloud Dataflow for most pipelines and would like to cut costs but not make any more changes than necessary. What would you recommend?",
+        "options": [
+            "Use Dataflow Streaming Engine",
+            "Use a different Apache Beam Runner",
+            "Use Dataflow FlexRS",
+            "Use Dataflow Shuffle"
+        ],
+        "answer": "Use Dataflow FlexRS",
+        "explanation": "The correct answer is to use Cloud Dataflow flexible resource scheduling (FlexRS) which reduces batch processing costs using scheduling techniques and preemptible VMs along with regular VMs. Streaming Engine is an optimization for stream, not batch, processing. Dataflow Shuffle provides for faster execution of batch jobs but does not necessarily reduce costs. Using a different Apache Beam runner would require more management overhead, for example, by running Apache Flink in Compute Engine. See https://cloud.google.com/dataflow/docs/guides/flexrs",
+        "domain": "Data Pipelines"
+    },
+    {
+        "question": "You are developing a data pipeline that will run several data transformation programs on Compute Engine virtual machines. You do not want to use your credentials for authenticating and authorizing these programs. You want to follow Google Cloud recommended practices, how would you authenticate and authorize the data transformation programs?",
+        "options": [
+            "Create a Gmail account and use that account to create an IAM group. Store the password for the group in Secret Manager.",
+            "Create a service account and assign roles to the service account that are needed to execute the data transformation programs. Use Google managed keys to store both public and private portion of the service account keys.",
+            "Create a Gmail account and use that account to create an IAM user. Store the password for the account in Secret Manager.",
+            "Create a service account and assign roles to the service account that are needed to execute the data transformation programs. Use Secret Manager to store service account keys."
+        ],
+        "answer": "Create a service account and assign roles to the service account that are needed to execute the data transformation programs. Use Google managed keys to store both public and private portion of the service account keys.",
+        "explanation": "Service accounts should be used, not a user identity or a group. A service account should be created and assigned necessary roles. Google managed keys should be used for managing service accounts, not Secret Manager, which is used for secrets such as usernames and passwords. See https://cloud.google.com/docs/authentication/production",
+        "domain": "Access control"
+    },
+    {
+        "question": "As part of the ingestion process, you want to ensure any messages written to a Cloud Pub/Sub topic all have a standard structure. What is the recommended way to ensure messages have the standard structure?",
+        "options": [
+            "Use a data quality function in Cloud Function to check the structure as it is written to Cloud Pub/Sub.",
+            "Create a schema and assign it to a topic during topic creation.",
+            "Use a data quality function in Cloud Function to reformat the message if needed before it is read from a subscription.",
+            "Create a schema and assign it to a subscription during subscription creation."
+        ],
+        "answer": "Create a schema and assign it to a topic during topic creation.",
+        "explanation": "Schemas are used to define a standard message structure and they are assigned to topics during creation. Schemas are not assigned to subscription. Cloud Functions should not be used to implement a feature that is available in Cloud Pub/Sub. Cloud Functions support only one type of Pub/Sub event, google.pubsub.topic.publish. See https://cloud.google.com/pubsub/docs/schemas",
+        "domain": "Data Pipelines"
+    },
+    {
+        "question": "A Cloud Dataproc cluster is experiencing a higher than normal workload and you'd like to add several preemptible VMs as worker nodes. What command would you use?",
+        "options": [
+            "The number of preemptible nodes in a Cloud Dataproc cluster cannot be changed once the cluster is created.",
+            "gcloud dataproc clusters update with the --num-secondary-workers parameter",
+            "gcloud dataproc clusters update with the --num-workers parameter",
+            "gcloud dataproc clusters update with the --preemptible-vms parameter"
+        ],
+        "answer": "gcloud dataproc clusters update with the --num-secondary-workers parameter",
+        "explanation": "The number of preemptible nodes can be updated using gcloud dataproc clusters update with the --num-secondary-workers parameter. The --num-workers parameter is used to change the number of primary (non-preemptible) workers. There is no --preemptible-vms parameter in the gcloud dataproc command. The number of preemptible (secondary) workers can be changed after creating a cluster. See https://cloud.google.com/sdk/gcloud/reference/dataproc/clusters/update",
+        "domain": "Data Pipelines"
+    },
+    {
+        "question": "Your team is deploying a new data pipeline. Developers who will maintain the pipeline will need permissions granted by three different roles. Those roles also have permissions that are not needed by the maintainers. Following Google Cloud recommended practices, what would you recommend?",
+        "options": [
+            "Create a custom role with only the permissions needed. This follows the principle of least privilege.",
+            "Assign the Owner role instead of the three roles to minimize role management overhead.",
+            "Assign the three existing roles to the maintainers in order to minimize role management overhead.",
+            "Create a custom group with all the permissions in the three different roles. This follows the principle of maximum privilege."
+        ],
+        "answer": "Create a custom role with only the permissions needed. This follows the principle of least privilege.",
+        "explanation": "Creating a custom role with only the permissions needed is the correct answer. This follows the principle of least privilege. Permissions are assigned to roles not groups. The Owner role is a primitive role that grants excessive privileges and should only be used in limited cases when security risks are minimal. Assigning the three existing roles would grant more permissions than needed and would violate the principle of least privilege. There is no principle of maximum privilege. https://cloud.google.com/blog/products/identity-security/dont-get-pwned-practicing-the-principle-of-least-privilege",
+        "domain": "Access control"
+    },
+    {
+        "question": "A startup is providing a streaming service for cricket fans around the world. The service will provide both live streams and videos of previously played matches. The architect of the startup wants to ensure all users have the same experience regardless of where they are located. What GCP service could the startup use to help ensure a consistent experience for previously played matches?",
+        "options": [
+            "Cloud Firestore",
+            "Cloud Storage using multiple regions",
+            "Cloud Storage using Nearline storage",
+            "Cloud CDN"
+        ],
+        "answer": "Cloud CDN",
+        "explanation": "Cloud CDN is a content delivery network service designed to store copies of data close to end users. Cloud Storage using multiple regions would require more management than Cloud CDN and does not have the automatic caching features of Cloud CDN. Cloud Storage Nearline is for storing objects that are accessed less than once in 30 days. Cloud Firestore is a NoSQL database and not appropriate for storing and streaming videos. See https://cloud.google.com/cdn",
+        "domain": "Networking"
+    },
+    {
+        "question": "A consultant has recommended that you replace an existing messaging system with Cloud Pub/Sub. You are concerned that your existing system has a different delivery guarantee than Cloud Pub/Sub. What kind of message delivery semantics does Cloud Pub/Sub guarantee?",
+        "options": [
+            "Deliver at least once",
+            "Deliver at most once",
+            "Deliver at most or deliver at least depending on configuration of the subscription",
+            "Best effort but no guarantee"
+        ],
+        "answer": "Deliver at least once",
+        "explanation": "Cloud Pub/Sub has a deliver at least once guarantee. It does not have deliver at most once guarantee. It is possible the Cloud Pub/Sub could deliver a message more than once. See https://cloud.google.com/pubsub/docs/subscriber",
+        "domain": "Data pipelines"
+    },
+    {
+        "question": "Epidemiology and infectious disease researchers are collecting data on the genomic sequences of several pathogens. The data is stored in a bioinformatics-specific format called FASTQ and are tens of gigabytes in size. They will eventually store several terabytes of FASTQ data. The data will be processed by Cloud Dataflow and results will be written to BigQuery. What is a good option for storing FASTQ data?",
+        "options": [
+            "Cloud Firestore",
+            "Bigtable",
+            "BigQuery",
+            "Cloud Storage"
+        ],
+        "answer": "Cloud Storage",
+        "explanation": "The specialized data format in this scenario makes object storage a good option so Cloud Storage is the best choice. Cloud Firestore is a good option for document storage, such as JSON structures. BigQuery and Bigtable are not suited to store large objects. See https://cloud.google.com/blog/topics/developers-practitioners/map-storage-options-google-cloud",
+        "domain": "Data management"
+    },
+    {
+        "question": "A data engineer needs to load data stored in Avro files in Cloud Storage into Bigtable. They would like to have a reliable, easily monitored process for copying the data. What would you recommend they use to copy the data?",
+        "options": [
+            "Cloud Dataflow, starting with a Cloud Storage Avro to Bigtable template.",
+            "gsutil",
+            "Storage Transfer Service",
+            "Custom Python 3 program"
+        ],
+        "answer": "Cloud Dataflow, starting with a Cloud Storage Avro to Bigtable template.",
+        "explanation": "The correct answer is to use Cloud Dataflow with a Cloud Storage Avro to Bigtable template. Using Python 3 would require more work than necessary. Gsutil is used to load data into Cloud Storage, not Bigtable. Storage Transfer Service is for copying data into Cloud Storage from other object storage system, such as AWS S3. A custom Python 3 program would require more development effort than using Cloud Dataflow. See https://cloud.google.com/architecture/streaming-avro-records-into-bigquery-using-dataflow",
+        "domain": "Databases"
+    },
+    {
+        "question": "You would like to set a maximum number of concurrent jobs in Cloud Dataproc. How would you do that?",
+        "options": [
+            "Set dataproc:dataproc.scheduler.max-concurrent-jobs property when adding worker nodes.",
+            "Use Cloud Monitoring to detect the number of jobs running and when the maximum threshold is exceeded, trigger a Cloud Function to terminate the most recently created job.",
+            "Set dataproc:dataproc.scheduler.max-concurrent-jobs property when creating a cluster.",
+            "Set computengine:mgi.scheduler.max-concurrent-jobs property when creating a managed instance group for Cloud Dataproc cluster."
+        ],
+        "answer": "Set dataproc:dataproc.scheduler.max-concurrent-jobs property when creating a cluster.",
+        "explanation": "The correct answer is to set the dataproc:dataproc.scheduler.max-concurrent-jobs property when creating a cluster. That property is not set when adding worker nodes. Properties of a Dataproc cluster that are specific to Dataproc are not set in Compute Engine. You do not need to monitor and terminate jobs using ad hoc procedures like triggering a Cloud Function after a maximum threshold is exceeded. See https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/cluster-properties",
+        "domain": "Data Pipelines"
+    },
+    {
+        "question": "To avoid hot-spotting in your Bigtable clusters, you have designed a row key that uses a UUID prefix. This is not working as expected and there is hot-spotting when writing data to Bigtable. What could be the cause of the hot-spotting?",
+        "options": [
+            "You have incorrectly configured column families.",
+            "Secondary indexes are slowing write operations.",
+            "You have chosen a type of UUID that has sequentially ordered strings.",
+            "The name of the row key column is too long."
+        ],
+        "answer": "You have chosen a type of UUID that has sequentially ordered strings.",
+        "explanation": "This could be caused by UUIDs that are sequentially generated. You should use UUID version 4 that uses a random number generator. Column families structure do not affect hot spotting. The name of a row key does not cause hot spotting. Bigtable does not support secondary indexes. See https://cloud.google.com/bigtable/docs/performance",
+        "domain": "Data management"
+    },
+    {
+        "question": "A multi-national financial services company is creating a new service to facilitate cross-currency transactions. The database must provide strong consistency for transactions that may be initiated by any customer. Customers are initially located in Europe but the company plans to expand to Asia, Africa, North America and South America within a year. The database must support normalized data models. What Google Cloud managed database service would you use?",
+        "options": [
+            "Cloud Bigtable",
+            "Cloud Spanner",
+            "Cloud SQL",
+            "BigQuery"
+        ],
+        "answer": "Cloud Spanner",
+        "explanation": "Cloud Spanner is the correct choice, it provides global scale relational database services, including strong consistency. Cloud SQL is appropriate for regional-scale databases. BigQuery is an analytical database designed for data warehousing and analytics. Cloud Bigtable is a NoSQL database and does not meet the specified requirements. https://cloud.google.com/blog/topics/developers-practitioners/what-cloud-spanner",
+        "domain": "Data management"
+    },
+    {
+        "question": "You have to migrate a large volume of data from an on-premises data store to Cloud Storage. You want to add metadata tags to objects with personally identifiable information. What two Google Cloud managed services could you use to accomplish this?",
+        "options": [
+            "Data Catalog and Cloud Firestore",
+            "Data Loss Prevention and Data Catalog",
+            "Compute Engine and Data Catalog",
+            "Data Loss Prevention and Compute Engine"
+        ],
+        "answer": "Data Loss Prevention and Data Catalog",
+        "explanation": "Data Loss Prevention can identify personal identifiable information and Data Catalog can assign and store metadata tags to objects. Compute Engine could be used with custom applications but it is not a managed service. Cloud Firestore is a document database and could be used for storage but Data Catalog is a better option because it is designed specifically for this kind of use case. See https://cloud.google.com/dlp and https://cloud.google.com/data-catalog",
+        "domain": "Data management"
+    },
+    {
+        "question": "As a consultant to a multi-national company, you are tasked with helping design a service to support an inventory management system that is strongly consistent, supports SQL, and can scale to support hundreds of users in North America, Asia, and Europe. What Google Cloud service would you recommend for this service?",
+        "options": [
+            "Cloud Spanner",
+            "Cloud SQL",
+            "Cloud Firestore",
+            "BigQuery"
+        ],
+        "answer": "Cloud Spanner",
+        "explanation": "Cloud Spanner is a global, horizontally scalable relational database with strong consistency and is the best option. Cloud SQL is not scalable beyond a single region. Cloud Firestore does not support SQL. BigQuery is an analytical database for data warehousing not an OLTP system such as an inventory management system. See https://cloud.google.com/blog/products/gcp/introducing-cloud-spanner-a-global-database-service-for-mission-critical-applications",
+        "domain": "Data management"
+    },
+    {
+        "question": "A university research group has started a company to commercialize a laboratory management system. Their application uses a MongoDB database but the group would like to migrate to a managed database service in Google Cloud. What service would you recommend they use?",
+        "options": [
+            "BigQuery",
+            "Cloud Firestore",
+            "Cloud Bigtable",
+            "Cloud SQL"
+        ],
+        "answer": "Cloud Firestore",
+        "explanation": "MongoDB is a document database so Cloud Firestore is the best option since it is also a document database. Cloud Bigtable is a wide-column NoSQL database and not a good replacement for MongoDB. BigQuery is an analytical database designed for data warehousing and data analysis. Cloud SQL is a relational database and not a good replacement for a NoSQL database. See https://firebase.google.com/docs/firestore/data-model",
+        "domain": "Databases"
+    },
+    {
+        "question": "What data structure in the Cloud Firestore document data model is analogous to a row in a relational database?",
+        "options": [
+            "Entity",
+            "Kinds",
+            "Interleaved row",
+            "Index"
+        ],
+        "answer": "Entity",
+        "explanation": "Entities are analogous to rows in relational data models, both of which describe a single modeled element. Kinds are collections of related entities and analogous to a table in relational data models. An index is used to implement efficient querying in both Cloud Firestore and relational databases. There is no such thing as an interleaved row; interleaved tables are a feature of Cloud Spanner which improves query performance by storing related data together. See https://firebase.google.com/docs/firestore/data-model",
+        "domain": "Databases"
+    },
+    {
+        "question": "An insurance claim review company provides expert opinion on contested insurance claims. The company uses Google Cloud for its data analysis pipelines. Clients of the company upload documents to Cloud Storage. When a file is uploaded, the company wants to immediately move the files to a Classified Data bucket if the file contains personally identifying information. What method would you recommend to accomplish this?",
+        "options": [
+            "Create a quarantine bucket for uploading, once a file is uploaded trigger a Cloud Function to call the Data Loss Prevention API to apply infotypes to detect PII. If PII is detected, move file to the Classified Data bucket.",
+            "Create a quarantine bucket for uploading, use Cloud Scheduler to run a job to run hourly that will call a custom built machine learning model trained to detect PII. If PII is detected, move file to the Classified Data bucket.",
+            "Create a quarantine bucket for uploading, once a file is uploaded trigger a Cloud Function to call a custom built machine learning model trained to detect PII. If PII is detected, move the file to the Classified Data bucket.",
+            "Create a quarantine bucket for uploading, use Cloud Scheduler to run a job to run hourly that will call the Data Loss Prevention API to apply infotypes to detect PII. If PII is detected, move file to the Classified Data bucket."
+        ],
+        "answer": "Create a quarantine bucket for uploading, once a file is uploaded trigger a Cloud Function to call the Data Loss Prevention API to apply infotypes to detect PII. If PII is detected, move file to the Classified Data bucket.",
+        "explanation": "The correct solution is to use a quarantine bucket that triggers a Cloud Function on upload to invoke the DLP API and move the file if PII is found. Cloud Scheduler runs jobs at regular intervals but this calls for immediate processing of a file once uploaded so Cloud Functions should be used. You could train a custom machine learning model but that requires development time and maintenance. A managed service like DLP is a better option. See https://cloud.google.com/dlp/docs/reference/rest",
+        "domain": "Compliance"
+    },
+    {
+        "question": "You are in the process of creating lifecycle policies to manage objects stored in Cloud Storage. Which of the following are lifecycle conditions you can use in your policies? (Choose 3)",
+        "options": [
+            "Age",
+            "Is Live",
+            "File type",
+            "Matches Storage Class",
+            "File size"
+        ],
+        "answer": [
+            "Age",
+            "Is Live",
+            "Matches Storage Class"
+        ],
+        "explanation": "The correct answers are age, matches storage class, and is live. File type and file size are not conditions available in lifecycle management policies. See https://cloud.google.com/storage/docs/lifecycle",
+        "domain": "Data management"
+    },
+    {
+        "question": "A team of analysts working with healthcare data have analyzed data in a BigQuery dataset for personally identifiable information. They want to store the results of the analysis in a managed service that will make it easy for them to retrieving information about the PII analysis at later times. What service would you recommend?",
+        "options": [
+            "Cloud Spanner",
+            "BigQuery",
+            "Data Catalog",
+            "Data Loss Prevention"
+        ],
+        "answer": "Data Catalog",
+        "explanation": "The correct answer is Data Catalog, a metadata management service designed for data discovery and metadata management. BigQuery Cloud Spanner could be used by Data Catalog is specifically designed to support metadata management and the types of queries that are typically used for metadata management. Data Loss Prevention is a service to identify types of information and estimate re-identification risk, it is not a service to persistently store data. See https://cloud.google.com/data-catalog/docs/concepts/overview",
+        "domain": "Compliance"
+    },
+    {
+        "question": "An online gaming company has used a normalized database to manage players' in-game possessions but it is difficult to maintain because the schema has to change frequently to support new game features and types of possessions. What kind of data model would you recommend instead of a normalized data model?",
+        "options": [
+            "Document model",
+            "Network model",
+            "Snowflake schema",
+            "Star schema"
+        ],
+        "answer": "Document model",
+        "explanation": "A document model supports semi-structured schemas that frequently change. Both a star schema and snowflake schema are denormalized relational data models used in data warehousing but would not meet the needs of an interactive game. A network model is used to model graph-like structures such as transportation networks and is not as good a fit for the requirements as a document model. See https://firebase.google.com/docs/firestore/data-model",
+        "domain": "Databases"
+    },
+    {
+        "question": "You are consulting to a company developing an IoT application that analyzes data from sensors deployed on drones. The application depends on a database that can write large volumes of data at low latency. The company has used Hadoop HBase in the past but wants to migrate to a managed database service. What service would you recommend?",
+        "options": [
+            "BigQuery",
+            "Bigtable",
+            "Cloud Firestore",
+            "Cloud Spanner"
+        ],
+        "answer": "Bigtable",
+        "explanation": "Bigtable is a wide column database with low latency writes that is well suited for IoT data storage and it has an HBase API. BigQuery is a data warehouse service. Cloud Dataproc is a managed Spark/Hadoop service. Cloud Firestore is a NoSQL document model database. See https://cloud.google.com/bigtable/docs/hbase-bigtable",
+        "domain": "Databases"
+    },
+    {
+        "question": "A team of data scientists has been using an on-premises cluster running Hadoop and HBase. They want to migrate to a managed service in Google Cloud. They also want to minimize changes to programs that make extensive use of the HBase API. What GCP service would you recommend?",
+        "options": [
+            "BigQuery",
+            "Cloud Spanner",
+            "Bigtable",
+            "Cloud Dataflow"
+        ],
+        "answer": "Bigtable",
+        "explanation": "The correct answer is Bigtable, which is a data store providing an HBASE compatible API. BigQuery is a data warehouse service that supports SQL but does not have an HBASE compatible API. Cloud Spanner is a relational database and not a replacement for Hadoop and HBASE. Cloud Dataflow is a data pipeline service that includes an Apache Beam runner. See https://cloud.google.com/bigtable/docs/hbase-bigtable",
+        "domain": "Databases"
+    },
+    {
+        "question": "You are developing a deep learning model and have training data with a large number of features. You are not sure which features are important. You'd like to use a regularization technique that will drive the parameter for the least important features toward zero. What regularization technique would you use?",
+        "options": [
+            "L2 or Ridge Regression",
+            "Backpropagation",
+            "L1 or Lasso Regression",
+            "Dropout"
+        ],
+        "answer": "L1 or Lasso Regression",
+        "explanation": "L1 or Lasso Regression adds an absolute value of magnitude penalty which drives the parameters (or coefficients) of least useful features toward zero. L2 or Ridge Regression adds a squared magnitude penalty that penalizes large parameters. Dropout is another form of regularization that ignores some features at some steps of the training process. Backpropagation is an algorithm for assigning error penalties to nodes in a neural network. See https://cloud.google.com/bigquery-ml/docs/preventing-overfitting and https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/",
+        "domain": "Machine learning"
+    },
+    {
+        "question": "A developer is deploying a Cloud SQL database to production and wants to follow Google Cloud recommended best practices. What should the developer use for authentication?",
+        "options": [
+            "Cloud Identity",
+            "IAM",
+            "Strong encryption",
+            "Cloud SQL Auth proxy"
+        ],
+        "answer": "Cloud SQL Auth proxy",
+        "explanation": "Cloud SQL Auth proxy is the recommended way to connect to Cloud SQL. Cloud Identity is an Identity as a Service provided by Google Cloud. IAM is Identity and Access Management service for managing identities and their authorizations. Strong encryption is used to protect the confidentiality and integrity of data, not to perform authentication. See https://cloud.google.com/sql/docs/mysql/sql-proxy",
+        "domain": "Databases"
+    },
+    {
+        "question": "A data warehouse team is concerned that some data sources may have poor quality controls. They do not want to bring incorrect or invalid data into the data warehouse. What could they do to understand the scope of the problem before starting to write ETL code?",
+        "options": [
+            "Load all source data into a data lake and then load it to the data warehouse.",
+            "Load the data into the data warehouse and log any records that fail integrity or consistency checks.",
+            "Have administrators of the source systems produce a data quality verification before exporting the data.",
+            "Perform a data quality assessment on the source data after it is extracted from the source system. These should include checks for ranges of values in each attribute, distribution of values in each attribute, counts of the number of invalid and missing values, and other checks on source data."
+        ],
+        "answer": "Perform a data quality assessment on the source data after it is extracted from the source system. These should include checks for ranges of values in each attribute, distribution of values in each attribute, counts of the number of invalid and missing values, and other checks on source data.",
+        "explanation": "The correct answer is performing a data quality assessment on data extracted from the source system. Loading data from a data lake to a data warehouse will not provide an assessment of the range of the problem. Loading data into the data warehouse and logging failed checks is less efficient because it will provide log messages but not aggregate statistics on the full scope of the problem. The source systems may not have the ability to perform data quality assessments and if they do, you may get different kinds of reports from different systems. By performing a data quality assessment on extracted data you can produce a consistent set of reports for all data sources. See https://cloud.google.com/blog/products/data-analytics/principles-and-best-practices-for-data-governance-in-the-cloud",
+        "domain": "Data management"
+    },
+    {
+        "question": "A financial services company wants to use BigQuery for data warehousing and analytics. The company is required to ensure encryption keys are stored and managed in a key management system that’s deployed outside of a public cloud. They want to minimize the management overhead of key management while remaining in compliance. What would you recommend they do?",
+        "options": [
+            "Use Cloud EKM for external key management",
+            "Use Dataproc for external data management, specifically keys",
+            "Use Data Catalog for external data management, specifically keys",
+            "Use external data sources with BigQuery and encrypt the external data sources outside of Google Cloud"
+        ],
+        "answer": "Use Cloud EKM for external key management",
+        "explanation": "The correct answer is to use External Key Management, it allows the company to maintain separation between data in BigQuery and their encryption keys. Data Catalog is a metadata and data discovery service, not a key management service. BigQuery external data sources allow for accessing data not stored in BigQuery and do not address the requirements. Cloud Dataproc is a managed Spark and Hadoop service, not a key management service. See https://cloud.google.com/kms/docs/ekm",
+        "domain": "Compliance"
+    },
+    {
+        "question": "A manufacturer of delivery drones has a monitoring system built on an Apache Beam runner. Temperature received over the past hour is analyzed and if any temperature reading is more than 2 standard deviations away from the mean for the past hour, an alert is triggered. What kind of windowing functions would you use to implement this operation?",
+        "options": [
+            "concurrent windows",
+            "fixed windows (also called tumbling windows)",
+            "session windows",
+            "sliding window (also called hopping windows)"
+        ],
+        "answer": "sliding window (also called hopping windows)",
+        "explanation": "Sliding windows (also called hopping windows) model a consistent time interval in a stream so it is the best option for continuously averaging the temperature for the past hour. Fixed windows (also known as tumbling windows) model a consistent, disjoint time interval in the stream. Session windows can contain a gap in duration and are used to model non-continuous streams of data. There is no concurrent window type of functions in Apache Beam runners such as Cloud Dataflow. See https://cloud.google.com/dataflow/docs/concepts/streaming-pipelines",
+        "domain": "Data pipelines"
+    },
+    {
+        "question": "You are migrating a data warehouse from on-premises to Google Cloud. Users of the data warehouse are concerned that they will not have access to highly performant, in memory analysis. What service would you suggest to have comparable features and performance in Google Cloud?",
+        "options": [
+            "BigQuery with Cloud Memorystore using Redis",
+            "Bigtable with BI Engine",
+            "BigQuery Cloud Memorystore with memcached",
+            "BigQuery BI Engine"
+        ],
+        "answer": "BigQuery BI Engine",
+        "explanation": "BigQuery BI Engine is an in-memory analytics engine. Cloud Memorystore is a cache and better suited to storing key-value data for applications that need low latency access to data. There is no Bigtable BI Engine service. See https://cloud.google.com/bigquery/docs/bi-engine-intro",
+        "domain": "Data Analysis"
+    },
+    {
+        "question": "You have created a function that should run whenever a message is written to a Cloud Pub/Sub topic. What command would you use to deploy that function?",
+        "options": [
+            "gcloud pubsub topics pull",
+            "gcloud pubsub subscription publish",
+            "gcloud pubsub topics publish",
+            "gcloud functions deploy"
+        ],
+        "answer": "gcloud functions deploy",
+        "explanation": "The correct command is gcloud functions deploy. Gcloud pubsub topics publish publishes a message to a topic. The others are not valid gcloud pubsub commands. See https://cloud.google.com/sdk/gcloud/reference/functions/deploy",
+        "domain": "Data Pipelines"
+    },
+    {
+        "question": "A team of socio-economic researchers is analyzing documents as part of a research study. The documents have had personally identifying information redacted. The researchers are concerned that someone with access to the data may be able to use quasi-identifiers, such as age and postal code, to re-identify some individuals. How can the researchers quantify that risk?",
+        "options": [
+            "Run a custom machine learning model trained to estimate the re-identification risk.",
+            "Use counts of the number of occurrences of quasi-identifiers identified using Data Loss Prevention infotypes.",
+            "Run a re-identification risk analysis using the Data Loss Prevention service.",
+            "Apply the re-identification infotype to each document with quasi-identifiers to calculate the level of risk."
+        ],
+        "answer": "Run a re-identification risk analysis using the Data Loss Prevention service.",
+        "explanation": "A re-identification risk analysis job using DLP will provide the information needed by the researchers. Using a custom trained machine learning program to estimate risk would take longer, require maintenance, and assumes the researchers are also proficient in machine learning. DLP uses infotypes but there is no re-identification risk infotype. Counting specific infotypes may provide some indication of re-identification risk but it is unlikely that a simple linear model of risk will give accurate or useful information. See https://cloud.google.com/blog/products/identity-security/taking-charge-of-your-data-understanding-re-identification-risk-and-quasi-identifiers-with-cloud-dlp",
+        "domain": "Compliance"
+    },
+    {
+        "question": "You are training a deep learning model for a classification task. The precision and recall of the model is quite low. What could you do to improve the precision and recall scores?",
+        "options": [
+            "Use more training instances",
+            "Use L1 regularization",
+            "Use L2 regularization",
+            "Use dropout"
+        ],
+        "answer": "Use more training instances",
+        "explanation": "The correct answer is to use more training instances. This is an example of underfitting. The other options are all regularizations used in cases of overfitting. See https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/",
+        "domain": "Machine learning"
+    },
+    {
+        "question": "An industry regulation requires that when analyzing personal identifying information (PII), you must not run analysis on physical servers that are shared with other cloud customers. You plan to use Cloud Dataproc for analyzing data with PII. What will you need to do when creating a Cloud Dataproc Cluster to ensure you are in compliance with this regulation?",
+        "options": [
+            "Create a sole-tenant node group and specify that node group when creating the cluster.",
+            "Create an unmanaged instance group and specify that instance group when creating the cluster.",
+            "Disable autoscaling to prevent the addition of non-sole tenant VMs.",
+            "You cannot configure Cloud Dataproc to use sole tenant nodes. You will need to run Spark in a Compute Engine managed instance group that you manage yourself."
+        ],
+        "answer": "Create a sole-tenant node group and specify that node group when creating the cluster.",
+        "explanation": "The correct answer is to create a sole-tenant node group and specify that node group when creating the cluster. Cloud Dataproc does support sole tenants so you don't need to run a self-managed Spark cluster. You can use autoscaling with sole tenant node groups. Unmanaged instance groups are not required and not recommend except for legacy, heterogeneous clusters migrating to Compute Engine. https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/sole-tenant-nodes",
+        "domain": "Data Pipelines"
+    },
+    {
+        "question": "You have developed a DoFn function for a Cloud Dataflow workflow. You discover that the PCollection does not have all the data needed to perform a necessary computation. You want to provide additional input each time an element of a PCollection is processed. What kind of Apache Beam construct would you use?",
+        "options": [
+            "Watermark",
+            "Side input",
+            "Custom window",
+            "Partition"
+        ],
+        "answer": "Side input",
+        "explanation": "The correct answer is a side input, which is an additional input for DoFn. A partition in Apache Beam separates elements of a collection into multiple output collections. A Watermark is used to indicate no data with timestamps earlier than the watermark will arrive in the future. A custom window is created using WindowFn functions to implement windows based on data-driven gaps. See https://cloud.google.com/architecture/e-commerce/patterns/slow-updating-side-inputs",
+        "domain": "Data pipelines"
+    },
+    {
+        "question": "An IoT service uses Bigtable to store timeseries data. You have noticed that write operations tend to happen on one node at a time rather than being evenly distributed across nodes. What could be the cause of this problem?",
+        "options": [
+            "Using the wrong type of GCP load balancer in front of Bigtable",
+            "Misconfiguring replication",
+            "Using too many columns in your data model",
+            "Using a row key that causes data that arrives close in time to be written to a single node, rather than evenly distributed."
+        ],
+        "answer": "Using a row key that causes data that arrives close in time to be written to a single node, rather than evenly distributed.",
+        "explanation": "This is an example of hot spotting, where workload is skewed toward a small number of nodes instead of evenly distributed. In Bigtable, this can be caused by row keys that are lexically close to each other and generated close in time. Bigtable distributes write operations based on the row key, not one of the GCP load balancers. Replication does not impact where data is originally written. Bigtable is a wide column database and can support a large number of columns and the number of columns does not affect the distribution of data across nodes. See https://cloud.google.com/bigtable/docs/performance",
+        "domain": "Databases"
+    },
+    {
+        "question": "A developer is creating a dashboard to monitor a service that uses Cloud Pub/Sub. They want to know when applications that read data from a pull subscription in Cloud Pub/Sub are not keeping up with the messages being ingested. What metric would you recommend they monitor?",
+        "options": [
+            "subscription/num_undelivered_messages",
+            "subscription/excess_ingestion_volume",
+            "topic/num_undelivered_messages",
+            "topic/excess_ingestion_volume"
+        ],
+        "answer": "subscription/num_undelivered_messages",
+        "explanation": "The subscription/num_undelivered_messages is the count of undelivered messages and one metric to indicate how well subscribers are keeping up with ingestion. The metric is tracked for subscriptions not topics. There is no metric called excess_ingestion_rate. See https://cloud.google.com/pubsub/docs/monitoring",
+        "domain": "Data Pipelines"
+    },
+    {
+        "question": "A new workload has been deployed to Cloud Dataproc, which is configured with an autoscaling policy. You are noticing a FetchFailedException is occurring intermittently. What would be the most likely cause of this problem?",
+        "options": [
+            "The autoscaling policy is scaling down and shuffle data is lost when a node is decommissioned.",
+            "You are using a GCS bucket with improper access controls.",
+            "The autoscaling policy is adding nodes too fast and data is being dropped.",
+            "You are using Google Cloud Storage instead of local storage for persistent storage."
+        ],
+        "answer": "The autoscaling policy is scaling down and shuffle data is lost when a node is decommissioned.",
+        "explanation": "The FetchFailedException can occur when shuffle data is lost when a node is decommissioned. The autopolicy should be configured based on the longest running job in the cluster. Adding nodes will not cause a loss of data. Cloud Storage is the preferred persistent storage method for Dataproc clusters. While FetchFailedException can be caused by network issues, that is not likely to be a problem when using Cloud Storage for a Cloud Dataproc cluster. If the storage bucket had improper access controls then errors would occur consistently, not intermittently. See https://cloud.google.com/blog/topics/developers-practitioners/dataproc-best-practices-guide",
+        "domain": "Data Pipelines"
+    },
+    {
+        "question": "A global transportation company is using Cloud Spanner for managing shipping orders. They have migrated an Oracle database to Cloud Spanner with minimal changes and are experiencing similar performance problems with joins. In particular, a one-to-many join between an orders table and an order items table is not performing as needed. What would you recommend?",
+        "options": [
+            "Use Cloud SQL for better join performance",
+            "Use Cloud Bigtable for better join performance",
+            "Use interleaved hashes",
+            "Use interleaved tables"
+        ],
+        "answer": "Use interleaved tables",
+        "explanation": "Interleaved tables store parent and children records together, such as orders and order items. This is more efficient than storing related items separately since the parent and child data can be read at the same time. Cloud Bigtable is a NoSQL database and would not meet requirements. Cloud SQL does not scale beyond regional-scale databases and would not meet requirements. There is no such thing as interleaved hashes in Cloud Spanner. See https://cloud.google.com/spanner/docs/schema-and-data-model and https://cloud.google.com/spanner/docs/whitepapers/optimizing-schema-design",
+        "domain": "Databases"
+    },
+    {
+        "question": "A team of analysts is building machine learning models. They want to use managed services when possible but they would also like the ability to customize and tune their models. In particular, they want to be able to tune hyperparameters themselves. What managed AI service would you recommend they use?",
+        "options": [
+            "Vertex AI custom training",
+            "BigQuery ML",
+            "Cloud TPUs",
+            "Vertex AI AutoML training"
+        ],
+        "answer": "Vertex AI custom training",
+        "explanation": "Vertex AI custom training allows for tuning hyperparameters. Vertex AI AutoML training tunes hyperparameters for you. BigQuery ML does not allow for hyperparameter tuning. Cloud TPUs are accelerators you can use to train large deep learning models. See https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform",
+        "domain": "Machine learning"
+    },
+    {
+        "question": "A manufacturer has successfully migrated several data warehouses to BigQuery and is using Cloud Storage for machine learning data. ML engineers and data analysts are having difficulty finding data sets they need. The CTO of the company has asked for your advice on how to reduce the workload on ML engineers and analysts when they need to find data sets. What would you recommend?",
+        "options": [
+            "Query the metadata catalog of BigQuery and Cloud Storage and write the results to a BigQuery table where the ML engineers and data analysts can query the data with SQL.",
+            "Use Cloud Data Catalog to automatically extract metadata from Cloud Storage objects and BigQuery data.",
+            "Use Cloud Logging to track files uploaded to Cloud Storage and data sets to BigQuery.",
+            "Use Cloud Fusion to tracking both files uploaded to Cloud Storage and data sets loaded into BigQuery."
+        ],
+        "answer": "Use Cloud Data Catalog to automatically extract metadata from Cloud Storage objects and BigQuery data.",
+        "explanation": "The correct answer is to use Cloud Data Catalog, which can automatically extract metadata from sources including Cloud Storage, BigQuery, Cloud Bigtable, Cloud Pub/Sub, and Google Sheets. Cloud Logging is used for recording data about events and is not the best way to collect metadata. Cloud Fusion is an ETL tool, not a metadata extraction tool. Developing your own metadata extraction tool, such as one that queries BigQuery metadata, requires more work and maintenance than using a managed service. See https://cloud.google.com/data-catalog/docs/concepts/overview",
+        "domain": "Data management"
+    },
+    {
+        "question": "You are developing a distributed system and want to decouple two services. You want to ensure messages use a standard format and you plan to use Cloud Pub/Sub. What schema types are supported by Cloud Pub/Sub? (Choose 2)",
+        "options": [
+            "Thrift",
+            "Parquet",
+            "CSV",
+            "Protocol Buffer",
+            "Avro"
+        ],
+        "answer": [
+            "Protocol Buffer",
+            "Avro"
+        ],
+        "explanation": "Cloud Pub/Sub supports Avro and Protocol Buffer schemas. Thrift is an alternative to Protocol Buffers but is not supported for schemas. Parquet is an open source file format used in Hadoop. CSV is a file format often used when sharing data between applications. See https://cloud.google.com/pubsub/docs/schemas",
+        "domain": "Data Pipelines"
+    },
+    {
+        "question": "You work for a game developer that is using Cloud Firestore and needs to regularly create backups. You'd like to issue a command and have it return immediately while the backup runs in the background. You want the backup file to be stored in a Cloud Storage bucket named game-ds-backup. What command would you use?",
+        "options": [
+            "gsutil datastore export gs://game-ds-backup",
+            "gcloud datastore backup gs://game-ds-backup",
+            "gcloud datastore export gs://game-ds-backup --async",
+            "gsutil datastore export gs://game-ds-backup --async"
+        ],
+        "answer": "gcloud datastore export gs://game-ds-backup --async",
+        "explanation": "The correct command is gcloud datastore export gs://game-ds-backup --async. Export, not backup, is the datastore command to save data to a Cloud Storage bucket. Gsutil is used to manage Cloud Storage, not Cloud Datastore. See https://cloud.google.com/datastore/docs/export-import-entities and https://cloud.google.com/sdk/gcloud/reference/datastore/export",
+        "domain": "Data management"
+    },
+    {
+        "question": "Analysts are using Cloud Data Studio for analyzing data sets. They would like to improve the performance of the time required to update tables and charts when working with the data. What would you recommend they try to improve performance?",
+        "options": [
+            "Use a live data source",
+            "Use a blended data source",
+            "Use an extracted data source",
+            "Use an imported data source"
+        ],
+        "answer": "Use an extracted data source",
+        "explanation": "Extracted data sources are snapshots and can provide better performance than live data sources. Blended data sources are used to combine data from multiple data sources. There is no imported data source. See https://cloud.google.com/bigquery/external-data-sources",
+        "domain": "Data Analysis"
+    },
+    {
+        "question": "Auditors have informed the CIO of your company that all logs from applications running in Google Cloud will need to be retained for 60 days. You would also like to access logs from 3rd party tools up to 60 days old. What solution would you recommend to meet this requirement?",
+        "options": [
+            "Use Cloud Logging and set up a Pub/Sub topic to receive log data and write that data to a Cloud Storage bucket to keep the logs 60 days. Create a data lifecycle policy to delete logs after 60 days.",
+            "Use Cloud Logging and set up a Log Router to create a Cloud Storage sink to keep the logs 60 days. Create a data lifecycle policy to delete logs after 60 days.",
+            "Use Cloud Logging and keep log data in the Cloud Firestore service for 60 days. Create a logging policy to delete the data after 60 days.",
+            "Use Cloud Logging and set up a Log Router to create a Bigtable sink to keep the logs 60 days. Create a data lifecycle policy to delete logs after 60 days."
+        ],
+        "answer": "Use Cloud Logging and set up a Log Router to create a Cloud Storage sink to keep the logs 60 days. Create a data lifecycle policy to delete logs after 60 days.",
+        "explanation": "Cloud Logging keeps logs by default up to 30 days and could be stored for a custom time period. By setting up a log sink for Cloud Storage, you can route logs to Cloud Storage where it can be kept for 60 days and accessed by 3rd party tools during that time. If log data were written to Cloud Pub/Sub another service would have to read that data and write it to a long term storage system, such as Cloud Storage. Bigtable is not a Cloud Logging sink option. See https://cloud.google.com/logging/docs/routing/overview and https://cloud.google.com/logging/docs/buckets",
+        "domain": "Monitoring and Logging"
+    },
+    {
+        "question": "You are designing a Bigtable schema and have several groups of columns that are frequently used together. You want to optimize read performance and follow Google Cloud recommended best practices. How would you treat these groups of columns?",
+        "options": [
+            "Create secondary indexes that include all columns in a group. Create one secondary index for each group.",
+            "Define a separate row key for each group.",
+            "Put related columns in column family",
+            "Put only one set of related columns in a table and use one table for each group"
+        ],
+        "answer": "Put related columns in column family",
+        "explanation": "Related columns should be placed in a column family. A single table can have multiple column families. Related data should be in one table, not multiple tables. Bigtable does not support secondary indexes. Row keys are specified for each row, not for each column family. See https://cloud.google.com/bigtable/docs/schema-design#best-practices",
+        "domain": "Databases"
+    },
+    {
+        "question": "What types of indexes are automatically created in Cloud Firestore? (Choose 2)",
+        "options": [
+            "Atomic values, descending",
+            "Hash indexes",
+            "Atomic values, ascending",
+            "Composite indexes, multi-value",
+            "Composite indexes, single value"
+        ],
+        "answer": [
+            "Atomic values, descending",
+            "Atomic values, ascending"
+        ],
+        "explanation": "Cloud Firestore automatically creates atomic value ascending and descending indexes. A composite index is made up of two or more values and are not created manually. There is no single valued composite index; all composite indexes have multiple values. There isn't a hash index type in Cloud Firestore. See https://firebase.google.com/docs/firestore/query-data/index-overview",
+        "domain": "Databases"
+    },
+    {
+        "question": "To comply with industry regulations, you will need to capture logs of all changes made to IAM roles and identities. Logs must be kept for 3 years. How would you meet this requirement?",
+        "options": [
+            "Use Cloud Audit Logs and export them to Bigtable. Create a retention policy and retention policy lock to prevent the logs from being deleted prior to them reaching 3 years of age. Define a lifecycle policy to delete the logs after three years.",
+            "Use Cloud Audit Logs and keep the logs in Cloud Monitoring. Specify a three year retention policy in Cloud Logging that automatically deletes the logs after three years.",
+            "Use Cloud Audit Logs and keep the logs in Cloud Logging. Specify a three year retention policy in Cloud Logging that automatically deletes the logs after three years.",
+            "Use Cloud Audit Logs and export them to Cloud Storage. Create a retention policy and retention policy lock to prevent the logs from being deleted prior to them reaching 3 years of age. Define a lifecycle policy to delete the logs after three years."
+        ],
+        "answer": "Use Cloud Audit Logs and export them to Cloud Storage. Create a retention policy and retention policy lock to prevent the logs from being deleted prior to them reaching 3 years of age. Define a lifecycle policy to delete the logs after three years.",
+        "explanation": "Cloud Audit log captures changes to IAM entities and keeps logs for 30 days. To keep them longer, export them to Cloud Storage. Use a retention policy to define how long the logs should be kept and using a retention policy lock to prevent changes to the retention period. Cloud Logging does not keep logs beyond 30 days and does not support retention policies. Cloud Monitoring collects and displays metrics, it does not store logs. Bigtable is not a good storage option for logs, it is designed for low latency writes at high volumes and provides for key lookups and queries that require range scanning. See https://cloud.google.com/logging/docs/audit",
+        "domain": "Compliance"
+    }
+]

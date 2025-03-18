@@ -10,19 +10,6 @@ This repository serves as a structured study guide for the **Google Cloud Profes
 - **Exam Fee**: $200 USD
 - **Official Guide**: [Google Cloud Certification Guide](https://cloud.google.com/certification/guides/professional-data-engineer)
 
-
-*Este repositorio está en inglés, pero puedes leerlo fácilmente en español utilizando Google Chrome.*
-
-## 🌎 Cómo traducir este repositorio al español
-Para leer los documentos en español sin necesidad de traducciones manuales, sigue estos pasos:
-
-1. **Abre este repositorio en Google Chrome.**
-2. **Haz clic derecho en cualquier parte de la página.**
-3. Selecciona **"Traducir a Español"**.
-4. ¡Chrome traducirá automáticamente todo el contenido al español! 🎉
-
-*Back to English* 
-
 ## 🏗️ Exam Domains and Breakdown
 The exam consists of five key sections, covering core data engineering concepts and best practices:
 
