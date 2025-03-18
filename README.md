@@ -26,7 +26,7 @@ Para leer los documentos en español sin necesidad de traducciones manuales, sig
 ## 🏗️ Exam Domains and Breakdown
 The exam consists of five key sections, covering core data engineering concepts and best practices:
 
-### **1️⃣ [Designing Data Processing Systems](./en/1_Designing_Data_Processing_Systems/Designing_Data_Processing_Systems.md) (22%)**
+### **1️⃣ [Designing Data Processing Systems](./en/1_Designing_Data_Processing_Systems/main.md) (22%)**
 - Designing for security and compliance
   - Identity and Access Management (IAM)
   - Encryption and key management
@@ -44,7 +44,7 @@ The exam consists of five key sections, covering core data engineering concepts 
   - Planning migration using BigQuery Data Transfer Service, Database Migration Service, and Datastream
   - Migration validation and governance
 
-### **2️⃣ [Ingesting and Processing Data](./en/2_Ingesting_and_Processing_Data/Ingesting_and_Processing_Data.md) (25%)**
+### **2️⃣ [Ingesting and Processing Data](./en/2_Ingesting_and_Processing_Data/main.md) (25%)**
 - Planning data pipelines
   - Defining data sources and sinks
   - Data transformation logic

@@ -7,23 +7,23 @@ Designing data processing systems is a core competency for a **Google Cloud Prof
 
 ## 🔹 **Best Practices for Designing Data Processing Systems**
 
-### 1️⃣ **Security & Compliance**
+### 1️⃣ **[Security & Compliance](./Security_&_Compliance.md)**
 - **Apply Least Privilege Access Control:** Use **IAM** roles to limit access to only what is necessary.
 - **Encrypt Data at Rest and in Transit:** Utilize **Cloud KMS** and **TLS encryption**.
 - **Ensure Data Privacy:** Use **Cloud Data Loss Prevention (DLP)** to redact sensitive information.
 - **Comply with Regional Regulations:** Implement **VPC Service Controls** and regional restrictions for compliance with **GDPR, HIPAA, and PCI-DSS**.
 
-### 2️⃣ **Reliability & Data Integrity**
+### 2️⃣ **[Reliability & Data Integrity](./Reliability_&_Data_Integrity.md)**
 - **Implement Data Validation:** Use **Cloud Dataprep** and **BigQuery Data Quality** to clean and verify data.
 - **Ensure Fault Tolerance:** Design for **auto-recovery and replication** using **Dataflow checkpointing** and **multi-region storage**.
 - **Enable Monitoring & Alerts:** Use **Cloud Logging, Cloud Monitoring, and Stackdriver**.
 
-### 3️⃣ **Scalability & Performance**
+### 3️⃣ **[Scalability & Performance](./Scalability_&_Performance.md)**
 - **Optimize Data Storage:** Choose **BigQuery for structured data**, **Cloud Storage for unstructured data**, and **Spanner for globally distributed databases**.
 - **Design for Auto-Scaling:** Use **Dataflow's dynamic scaling** and **Dataproc autoscaling policies**.
 - **Partition & Index Data:** Improve query performance in **BigQuery** and **Cloud SQL**.
 
-### 4️⃣ **Cost Optimization**
+### 4️⃣ **[Cost Optimization](./Cost_Optimization.md)**
 - **Use Serverless Architectures:** Minimize overhead with **BigQuery, Dataflow, and Cloud Functions**.
 - **Optimize Storage Costs:** Implement **Lifecycle Policies** in **Cloud Storage**.
 - **Monitor & Reduce Query Costs:** Use **BigQuery slot reservations** and **Dataflow job optimizations**.

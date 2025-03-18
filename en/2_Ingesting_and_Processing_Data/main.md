@@ -7,7 +7,7 @@ Ingesting and processing data efficiently is critical for **Google Cloud Profess
 
 ## 🔹 **Best Practices for Data Ingestion & Processing**
 
-### 1️⃣ **Batch vs. Streaming Data Processing**
+### 1️⃣ **[Batch vs. Streaming Data Processing](./Batch_vs_Streaming_Data_Processing.md)**
 - **Batch Processing:**
   - Processes large data sets at scheduled intervals.
   - Best for ETL jobs, data warehousing, and historical analysis.
@@ -17,7 +17,7 @@ Ingesting and processing data efficiently is critical for **Google Cloud Profess
   - Best for IoT data, fraud detection, and real-time analytics.
   - **GCP Services:** Pub/Sub, Dataflow, BigQuery Streaming, Vertex AI.
 
-### 2️⃣ **Optimizing Data Pipelines**
+### 2️⃣ **[Optimizing Data Pipelines](./Optimizing_Data_Pipelines.md)**
 - **Use Auto-Scaling Services:** Cloud Dataflow and Dataproc scale dynamically.
 - **Ensure Schema Consistency:** Use BigQuery’s schema enforcement for structured data.
 - **Apply Data Validation:** Use Cloud Dataprep for preprocessing and data integrity.
