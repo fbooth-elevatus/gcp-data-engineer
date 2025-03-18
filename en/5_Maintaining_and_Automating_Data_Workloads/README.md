@@ -82,7 +82,7 @@ gcloud dataflow jobs run batch-etl-job \
 
 ---
 
-## 2️⃣ **Automating Real-Time Data Workloads**
+## 2️⃣ **[Automating Real-Time Data Workloads](./Automating_Real_Time_Data_Workloads.md)**
 ### 💼 **Real-World Use Case: Real-Time Clickstream Processing**
 **Scenario:** An **e-commerce company** wants to process **user clickstream data** in real-time to **analyze customer behavior**.
 

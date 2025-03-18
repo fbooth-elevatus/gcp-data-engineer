@@ -79,5 +79,4 @@ Organizations must comply with **GDPR, HIPAA, PCI-DSS**, and other data privacy 
 - Monitor **Cloud Security Command Center** for threat detection and compliance violations.
 - Automate **security monitoring** with **Security Health Analytics** and **Forseti Security**.
 
-By implementing these security best practices, organizations can protect their data while ensuring compliance with industry regulations.
 

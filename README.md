@@ -26,6 +26,9 @@ Para leer los documentos en español sin necesidad de traducciones manuales, sig
 ## 🏗️ Exam Domains and Breakdown
 The exam consists of five key sections, covering core data engineering concepts and best practices:
 
+### **0️⃣ [Designing Data Processing Systems](./en/0_Overview_and_Data_Engineering_Principles/README.md)**
+- Overview of Data Engineering Principles
+
 ### **1️⃣ [Designing Data Processing Systems](./en/1_Designing_Data_Processing_Systems/README.md) (22%)**
 - Designing for security and compliance
   - Identity and Access Management (IAM)

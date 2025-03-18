@@ -8,7 +8,8 @@ This cheatsheet provides a quick reference for **Google Cloud Platform (GCP) too
 ## 🔹 Data Storage & Warehousing
 
 ### **1️⃣ BigQuery (BQ)**
-![Big Query](../images/gcp/Big%20Data/bigquery-productcard.jpg)
+![Big Query](../../images/gcp/Big%20Data/bigquery-productcard.jpg)
+
 ✅ **When to Use:**
 - Large-scale data analytics and reporting.
 - Running **fast** SQL queries on petabyte-scale data.
@@ -29,7 +30,8 @@ This cheatsheet provides a quick reference for **Google Cloud Platform (GCP) too
 ---
 
 ### **2️⃣ Cloud Storage (GCS)**
-![Cloud Storage](../images/gcp/Storage%20and%20Databases/cloud-storage-productcard.jpg)
+![Cloud Storage](../../images/gcp/Storage%20and%20Databases/cloud-storage-productcard.jpg)
+
 ✅ **When to Use:**
 - Storing unstructured data (images, videos, logs, backups).
 - Data lake for batch/streaming ETL processing.
@@ -50,7 +52,8 @@ This cheatsheet provides a quick reference for **Google Cloud Platform (GCP) too
 ---
 
 ### **3️⃣ Cloud SQL & Spanner**
-![Cloud SQL](../images/gcp/Storage%20and%20Databases/cloud-sql-productcard.jpg)
+![Cloud SQL](../../images/gcp/Storage%20and%20Databases/cloud-sql-productcard.jpg)
+
 ✅ **When to Use:**
 - **Cloud SQL:** Relational databases (MySQL, PostgreSQL) for transactional applications.
 - **Spanner:** Global-scale, **strongly consistent** distributed relational database.
@@ -72,7 +75,8 @@ This cheatsheet provides a quick reference for **Google Cloud Platform (GCP) too
 ## 🔹 Data Processing & Pipelines
 
 ### **4️⃣ Dataflow (Apache Beam)**
-![Dataflow](../images/gcp/Big%20Data/dataflow-productcard.jpg)
+![Dataflow](../../images/gcp/Big%20Data/dataflow-productcard.jpg)
+
 ✅ **When to Use:**
 - Real-time & batch data processing.
 - ETL pipelines (Extract, Transform, Load).
@@ -92,7 +96,8 @@ This cheatsheet provides a quick reference for **Google Cloud Platform (GCP) too
 ---
 
 ### **5️⃣ Dataproc (Managed Hadoop/Spark)**
-![Dataproc](../images/gcp/Big%20Data/dataproc-productcard.jpg)
+![Dataproc](../../images/gcp/Big%20Data/dataproc-productcard.jpg)
+
 ✅ **When to Use:**
 - Running Apache Spark, Hadoop, Presto, or Hive on GCP.
 - Migrating on-premise Hadoop clusters to GCP.
@@ -114,7 +119,8 @@ This cheatsheet provides a quick reference for **Google Cloud Platform (GCP) too
 ## 🔹 Messaging & Event-Driven Data
 
 ### **6️⃣ Pub/Sub**
-![Pub/Sub](../images/gcp/Big%20Data/pub_sub-productcard.jpg)
+![Pub/Sub](../../images/gcp/Big%20Data/pub_sub-productcard.jpg)
+
 ✅ **When to Use:**
 - Event-driven architectures (real-time streaming data processing).
 - Streaming ingestion pipelines.
@@ -136,7 +142,8 @@ This cheatsheet provides a quick reference for **Google Cloud Platform (GCP) too
 ## 🔹 Machine Learning & AI
 
 ### **7️⃣ Vertex AI**
-![Vertex AI](../images/gcp/Machine%20Learning/AIPlatform-productcard.jpg)
+![Vertex AI](../../images/gcp/Machine%20Learning/AIPlatform-productcard.jpg)
+
 ✅ **When to Use:**
 - Building & deploying **ML models at scale**.
 - AutoML for **no-code ML model training**.
