@@ -73,7 +73,7 @@ The exam consists of five key sections, covering core data engineering concepts 
   - Using Google Cloud tools like Dataplex, Data Catalog, and BigQuery
   - Federated governance model for distributed data
 
-### **4️⃣ [Preparing and Using Data for Analysis (15%)**
+### **4️⃣ [Preparing and Using Data for Analysis](./en/4_Preparing_and_Using_Data_for_Analysis/ (15%)**
 - Preparing data for visualization
   - Connecting to BI tools
   - Precalculating fields and optimizing queries
@@ -86,7 +86,7 @@ The exam consists of five key sections, covering core data engineering concepts 
   - Feature engineering for ML models
   - Data discovery and exploration
 
-### **5️⃣ Maintaining and Automating Data Workloads (18%)**
+### **5️⃣ [Maintaining and Automating Data Workloads](./en/5_Maintaining_and_Automating_Data_Workloads/Maintaining_and_Automating_Data_Workloads.md) (18%)**
 - Optimizing resources
   - Cost efficiency and resource allocation
   - Persistent vs. job-based clusters
