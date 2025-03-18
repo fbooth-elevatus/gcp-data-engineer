@@ -10,7 +10,7 @@ This guide covers:
 
 ---
 
-## 🔹 **GCP Storage Services and Use Cases**
+## 🔹 **[GCP Storage Services and Use Cases](./GCP_Storage_Services_and_Use_Cases.md)**
 
 | **Service**         | **Use Case** |
 |--------------------|------------------------------------------------|
