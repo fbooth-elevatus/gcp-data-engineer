@@ -58,7 +58,7 @@ The exam consists of five key sections, covering core data engineering concepts 
   - Job automation and orchestration with Cloud Composer and Workflows
   - CI/CD for data pipelines
 
-### **3️⃣ [Storing the Data](./en/3_Storing_the_Data/Storing_the_Data.md) (20%)**
+### **3️⃣ [Storing the Data](./en/3_Storing_the_Data/README.md) (20%)**
 - Selecting storage systems
   - Access patterns and managed services (Bigtable, Spanner, Cloud SQL, Firestore, Memorystore)
   - Storage cost and performance considerations
