@@ -7,7 +7,6 @@ This repository serves as a structured study guide for the **Google Cloud Profes
 - **Objective**: Demonstrate the ability to design, build, operationalize, and secure data solutions on Google Cloud.
 - **Duration**: 2 hours
 - **Format**: Multiple-choice and multiple-select questions
-- **Exam Fee**: $200 USD
 - **Official Guide**: [Google Cloud Certification Guide](https://cloud.google.com/certification/guides/professional-data-engineer)
 
 ## 🏗️ Exam Domains and Breakdown
