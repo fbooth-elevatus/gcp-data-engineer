@@ -13,7 +13,11 @@ This repository serves as a structured study guide for the **Google Cloud Profes
 The exam consists of five key sections, covering core data engineering concepts and best practices:
 
 ### **0️⃣ [Designing Data Processing Systems](./en/0_Overview_and_Data_Engineering_Principles/README.md)**
-- Overview of Data Engineering Principles
+- Introduction to Data Engineering
+- Data Engineering Concepts
+- Data Governance
+- GCP Data Cheatsheet
+
 
 ### **1️⃣ [Designing Data Processing Systems](./en/1_Designing_Data_Processing_Systems/README.md) (22%)**
 - Designing for security and compliance
